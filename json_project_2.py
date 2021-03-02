@@ -16,7 +16,7 @@ outfile = open('readable_US_fires_9_4.json', 'w')
 fire_data = json.load(infile)
 
 #dump function takes json data and format into something more readable
-#creates new file --> readable_eq_data.json
+
 json.dump(fire_data,outfile, indent=4)
 
 lons, lats, brights =  [], [], []
