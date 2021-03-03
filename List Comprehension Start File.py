@@ -104,7 +104,8 @@ print(output2)
 
 
 #6) Creating a list based on a condition
-
+new_range = [i*i for i in range(5) if i % 2 ==0] #going through i  (each value from o to 4), i is 0 first iteration, then checks condition which is 0/2 if that is true do the expression which squares
+#1/2 is not 0, so no output, 2/2 is 0 so 2*2 is 4
 
 
 #Output - [0, 4, 16]
@@ -113,11 +114,15 @@ print(output2)
 
 
 # 7) Extracting numbers only from a string and putting it in a list
-
+string = 'hello 12345 world'
+numbers = [x for x in string if x.isdigit()]
+#goes through each letter of string, checking to see if any letter is a digit, the puts each digit in list
+print(numbers)
 
 
 # Output - ['1', '2', '3', '4', '5']
-
+letters = [x for x in string if x.isalpha()]
+print (letters)
 
 
 
@@ -135,8 +140,11 @@ this is line5
 
 Save the file as test.txt '''
 
+thefile = open('test.txt','r')
 
-
+result = [i for i in thefile if 'line3' in i]
+#goes through every line, if that line has word line3 in it, that line goes in result
+print(result)
 
 
 #Output: ['this is line3']
@@ -146,17 +154,18 @@ Save the file as test.txt '''
 #9) Using functions in list comprehension
 
 # Create a function and name it double:
+def double(x):
+    return x*2
 
 
 # If you now just print that function with a value in it, it should look like this:
-
-
+print(double(10))
 
 # Answer - 20
-
-
+results = [double(x) for x in range(10)]
+print(results)
 #We can easily use list comprehension on that function.
-
+#0 goes into double, which multiplies by two, then that is saved in results
 
 
 
@@ -170,6 +179,8 @@ Save the file as test.txt '''
 
 # 10) adding an IF condition to the above
 
+results = [double(x) for x in range(10) if x%2== 0]
+print(results)
 
 
 
@@ -182,9 +193,10 @@ Save the file as test.txt '''
 
 
 # 11) You can add more arguments (using multiple iterators and lists):
+result = [x+y for x in [10,30,50] for y in [20,40,60]]
+print(result)
 
-
-
+#each element of x plus each element of y --> 10+20, 30+20
 
 
 # Output - [30, 50, 70, 50, 70, 90, 70, 90, 110]
